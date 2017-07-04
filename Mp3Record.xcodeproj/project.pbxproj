@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1A733F4106DC8203C6BC35C3 /* Pods_Mp3Record.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF49C6A5171B54F99C9AB6C7 /* Pods_Mp3Record.framework */; };
+		AA7CE93D1F0BDF070064FE41 /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7CE93C1F0BDF070064FE41 /* lame.framework */; };
+		AA7CE93F1F0BE04B0064FE41 /* AudioWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7CE93E1F0BE04B0064FE41 /* AudioWrapper.m */; };
+		AA7CE9411F0BE6C10064FE41 /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7CE9401F0BE6C10064FE41 /* AudioHelper.swift */; };
 		AAAB31841F0A834E008FF70D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB31831F0A834E008FF70D /* AppDelegate.swift */; };
 		AAAB31861F0A834E008FF70D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB31851F0A834E008FF70D /* ViewController.swift */; };
 		AAAB31891F0A834E008FF70D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAAB31871F0A834E008FF70D /* Main.storyboard */; };
@@ -28,6 +31,11 @@
 
 /* Begin PBXFileReference section */
 		993AF50B4EF032B468C9291D /* Pods-Mp3Record.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3Record.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3Record/Pods-Mp3Record.release.xcconfig"; sourceTree = "<group>"; };
+		AA7CE9381F0BDE7D0064FE41 /* Mp3Record-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mp3Record-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA7CE93B1F0BDE960064FE41 /* AudioWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioWrapper.h; sourceTree = "<group>"; };
+		AA7CE93C1F0BDF070064FE41 /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
+		AA7CE93E1F0BE04B0064FE41 /* AudioWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioWrapper.m; sourceTree = "<group>"; };
+		AA7CE9401F0BE6C10064FE41 /* AudioHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
 		AAAB31801F0A834E008FF70D /* Mp3Record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp3Record.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB31831F0A834E008FF70D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAAB31851F0A834E008FF70D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A733F4106DC8203C6BC35C3 /* Pods_Mp3Record.framework in Frameworks */,
+				AA7CE93D1F0BDF070064FE41 /* lame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,7 @@
 		AAAB31771F0A834E008FF70D = {
 			isa = PBXGroup;
 			children = (
+				AA7CE93C1F0BDF070064FE41 /* lame.framework */,
 				AAAB31821F0A834E008FF70D /* Mp3Record */,
 				AAAB31971F0A834E008FF70D /* Mp3RecordTests */,
 				AAAB31811F0A834E008FF70D /* Products */,
@@ -102,11 +112,15 @@
 			isa = PBXGroup;
 			children = (
 				AAAB31831F0A834E008FF70D /* AppDelegate.swift */,
+				AA7CE93B1F0BDE960064FE41 /* AudioWrapper.h */,
+				AA7CE93E1F0BE04B0064FE41 /* AudioWrapper.m */,
 				AAAB31851F0A834E008FF70D /* ViewController.swift */,
 				AAAB31871F0A834E008FF70D /* Main.storyboard */,
 				AAAB318A1F0A834E008FF70D /* Assets.xcassets */,
 				AAAB318C1F0A834E008FF70D /* LaunchScreen.storyboard */,
 				AAAB318F1F0A834E008FF70D /* Info.plist */,
+				AA7CE9381F0BDE7D0064FE41 /* Mp3Record-Bridging-Header.h */,
+				AA7CE9401F0BE6C10064FE41 /* AudioHelper.swift */,
 			);
 			path = Mp3Record;
 			sourceTree = "<group>";
@@ -173,6 +187,7 @@
 				TargetAttributes = {
 					AAAB317F1F0A834E008FF70D = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					AAAB31931F0A834E008FF70D = {
@@ -275,6 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAAB31861F0A834E008FF70D /* ViewController.swift in Sources */,
+				AA7CE93F1F0BE04B0064FE41 /* AudioWrapper.m in Sources */,
+				AA7CE9411F0BE6C10064FE41 /* AudioHelper.swift in Sources */,
 				AAAB31841F0A834E008FF70D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,10 +434,17 @@
 			baseConfigurationReference = ACC5262F2352920135074393 /* Pods-Mp3Record.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Mp3Record/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Mp3Record;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mp3Record/Mp3Record-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -430,10 +454,16 @@
 			baseConfigurationReference = 993AF50B4EF032B468C9291D /* Pods-Mp3Record.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Mp3Record/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Mp3Record;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mp3Record/Mp3Record-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -485,6 +515,7 @@
 				AAAB319F1F0A834E008FF70D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAAB31A01F0A834E008FF70D /* Build configuration list for PBXNativeTarget "Mp3RecordTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +524,7 @@
 				AAAB31A21F0A834E008FF70D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

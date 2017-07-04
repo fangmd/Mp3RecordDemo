@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import AVFoundation
 
+
+
+
+
 class ViewController: UIViewController {
     
     let mBtnStart: UIButton = {
@@ -25,6 +29,22 @@ class ViewController: UIViewController {
         btn.setTitle("Stop", for: .normal)
         btn.setTitleColor(UIColor.black, for: .normal)
         btn.addTarget(self, action: #selector(stopRecord), for: .touchUpInside)
+        return btn
+    }()
+    
+    let mBtnPlay: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Play", for: .normal)
+        btn.setTitleColor(UIColor.black, for: .normal)
+        btn.addTarget(self, action: #selector(playRecord), for: .touchUpInside)
+        return btn
+    }()
+    
+    let mBtnConvert: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Convert", for: .normal)
+        btn.setTitleColor(UIColor.black, for: .normal)
+        btn.addTarget(self, action: #selector(convertRecord), for: .touchUpInside)
         return btn
     }()
     
@@ -57,6 +77,8 @@ class ViewController: UIViewController {
     func initView(){
         self.view.addSubview(mBtnStart)
         self.view.addSubview(mBtnStop)
+        self.view.addSubview(mBtnPlay)
+        
         
         mBtnStart.snp.makeConstraints { (make) in
             make.width.equalTo(self.view)
@@ -68,6 +90,11 @@ class ViewController: UIViewController {
             make.height.equalTo(20)
             make.top.equalTo(mBtnStart.snp.bottom)
         }
+        mBtnPlay.snp.makeConstraints { (make) in
+            make.width.equalTo(self.view)
+            make.height.equalTo(20)
+            make.top.equalTo(mBtnStop.snp.bottom)
+        }
         
         
     }
@@ -77,9 +104,39 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // play
+    var mPlayer: AVAudioPlayer?
+    func playRecord(){
+        NSLog("Play %@", mFilePath ?? "")
+        
+        let audioUrl = URL(fileURLWithPath: mFilePath!, isDirectory: false)
+        
+        do {
+            mPlayer = try AVAudioPlayer(contentsOf: audioUrl)
+            guard let mPlayer = mPlayer else { return }
+            
+            mPlayer.prepareToPlay()
+            mPlayer.play()
+        } catch let error as NSError {
+            print(error.description)
+        }
+        
+        
+    }
+    
+    //--- convert
+    
+    func convertRecord(){
+        let a = AudioWrapper()
+        
+        
+        
+    }
+    
+    //---------- record
     
     var audioRec: AVAudioRecorder?
-    
+    var mFilePath: String?
     
     func startRecord(){
         
@@ -87,9 +144,12 @@ class ViewController: UIViewController {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docsDirect = paths[0]
         
-        let fileName = 
+        let tmpDirPath = NSTemporaryDirectory()
+        mFilePath = tmpDirPath.appending("audioFileName.m4a")
         
-        let audioUrl = try docsDirect.appendingPathComponent("audioFileName.m4a")
+        NSLog("Temporary path: %@ ,, @@", [tmpDirPath, mFilePath])
+        
+        let audioUrl = URL(fileURLWithPath: mFilePath!, isDirectory: false)
         
         
         // 1. create the session
@@ -127,6 +187,9 @@ class ViewController: UIViewController {
         // record end result
         NSLog("Record End %@", String(success))
     }
+    
+    
+    
     
     
 }
