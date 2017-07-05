@@ -21,9 +21,13 @@
 // 类属性声明
 // 类方法和声明
 
-+ (void)audioPCMtoMP3 :(NSString *)audioFileSavePath :(NSString *)mp3FilePath;
++ (void)audioPCMtoMP3:(NSString *)audioFileSavePath :(NSString *)mp3FilePath;
 
 
 + (void)convertFromWavToMp3:(NSString *)filePath;
+
++ (void)convertMp3Finish:(NSString *)mp3FilePath;
+
++ (void)toMp3:(NSString *)audioFileSavePath :(NSString *)mp3FilePath;
 
 @end

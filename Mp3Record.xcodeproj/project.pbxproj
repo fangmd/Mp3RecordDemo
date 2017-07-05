@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A733F4106DC8203C6BC35C3 /* Pods_Mp3Record.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF49C6A5171B54F99C9AB6C7 /* Pods_Mp3Record.framework */; };
-		AA7CE93D1F0BDF070064FE41 /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7CE93C1F0BDF070064FE41 /* lame.framework */; };
+		8477392F258B0912EC857780 /* Pods_Mp3Record.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678283AA7B2A9292F72A4F8F /* Pods_Mp3Record.framework */; };
 		AA7CE93F1F0BE04B0064FE41 /* AudioWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7CE93E1F0BE04B0064FE41 /* AudioWrapper.m */; };
 		AA7CE9411F0BE6C10064FE41 /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7CE9401F0BE6C10064FE41 /* AudioHelper.swift */; };
+		AA7CE9511F0D2FE70064FE41 /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7CE9501F0D2FE70064FE41 /* lame.framework */; };
 		AAAB31841F0A834E008FF70D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB31831F0A834E008FF70D /* AppDelegate.swift */; };
 		AAAB31861F0A834E008FF70D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB31851F0A834E008FF70D /* ViewController.swift */; };
 		AAAB31891F0A834E008FF70D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAAB31871F0A834E008FF70D /* Main.storyboard */; };
@@ -30,12 +30,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		678283AA7B2A9292F72A4F8F /* Pods_Mp3Record.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mp3Record.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		993AF50B4EF032B468C9291D /* Pods-Mp3Record.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3Record.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3Record/Pods-Mp3Record.release.xcconfig"; sourceTree = "<group>"; };
 		AA7CE9381F0BDE7D0064FE41 /* Mp3Record-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mp3Record-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA7CE93B1F0BDE960064FE41 /* AudioWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioWrapper.h; sourceTree = "<group>"; };
-		AA7CE93C1F0BDF070064FE41 /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
 		AA7CE93E1F0BE04B0064FE41 /* AudioWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioWrapper.m; sourceTree = "<group>"; };
 		AA7CE9401F0BE6C10064FE41 /* AudioHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
+		AA7CE94A1F0D2DD30064FE41 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AA7CE94C1F0D2DDA0064FE41 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AA7CE94E1F0D2DE80064FE41 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AA7CE9501F0D2FE70064FE41 /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
 		AAAB31801F0A834E008FF70D /* Mp3Record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp3Record.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAB31831F0A834E008FF70D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAAB31851F0A834E008FF70D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +51,6 @@
 		AAAB31981F0A834E008FF70D /* Mp3RecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3RecordTests.swift; sourceTree = "<group>"; };
 		AAAB319A1F0A834E008FF70D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACC5262F2352920135074393 /* Pods-Mp3Record.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3Record.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3Record/Pods-Mp3Record.debug.xcconfig"; sourceTree = "<group>"; };
-		DF49C6A5171B54F99C9AB6C7 /* Pods_Mp3Record.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mp3Record.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A733F4106DC8203C6BC35C3 /* Pods_Mp3Record.framework in Frameworks */,
-				AA7CE93D1F0BDF070064FE41 /* lame.framework in Frameworks */,
+				8477392F258B0912EC857780 /* Pods_Mp3Record.framework in Frameworks */,
+				AA7CE9511F0D2FE70064FE41 /* lame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +76,10 @@
 		01C535849CB7EF577D30D49C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DF49C6A5171B54F99C9AB6C7 /* Pods_Mp3Record.framework */,
+				AA7CE94E1F0D2DE80064FE41 /* CoreGraphics.framework */,
+				AA7CE94C1F0D2DDA0064FE41 /* AVFoundation.framework */,
+				AA7CE94A1F0D2DD30064FE41 /* AudioToolbox.framework */,
+				678283AA7B2A9292F72A4F8F /* Pods_Mp3Record.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -90,7 +96,7 @@
 		AAAB31771F0A834E008FF70D = {
 			isa = PBXGroup;
 			children = (
-				AA7CE93C1F0BDF070064FE41 /* lame.framework */,
+				AA7CE9501F0D2FE70064FE41 /* lame.framework */,
 				AAAB31821F0A834E008FF70D /* Mp3Record */,
 				AAAB31971F0A834E008FF70D /* Mp3RecordTests */,
 				AAAB31811F0A834E008FF70D /* Products */,
@@ -441,6 +447,10 @@
 				);
 				INFOPLIST_FILE = Mp3Record/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Mp3Record;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mp3Record/Mp3Record-Bridging-Header.h";
@@ -461,6 +471,10 @@
 				);
 				INFOPLIST_FILE = Mp3Record/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Mp3Record;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mp3Record/Mp3Record-Bridging-Header.h";

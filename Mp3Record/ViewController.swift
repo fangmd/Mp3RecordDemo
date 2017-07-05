@@ -78,6 +78,7 @@ class ViewController: UIViewController {
         self.view.addSubview(mBtnStart)
         self.view.addSubview(mBtnStop)
         self.view.addSubview(mBtnPlay)
+        self.view.addSubview(mBtnConvert)
         
         
         mBtnStart.snp.makeConstraints { (make) in
@@ -94,8 +95,12 @@ class ViewController: UIViewController {
             make.width.equalTo(self.view)
             make.height.equalTo(20)
             make.top.equalTo(mBtnStop.snp.bottom)
+        }        
+        mBtnConvert.snp.makeConstraints { (make) in
+            make.width.equalTo(self.view)
+            make.height.equalTo(20)
+            make.top.equalTo(mBtnPlay.snp.bottom)
         }
-        
         
     }
     
@@ -107,9 +112,12 @@ class ViewController: UIViewController {
     // play
     var mPlayer: AVAudioPlayer?
     func playRecord(){
-        NSLog("Play %@", mFilePath ?? "")
         
-        let audioUrl = URL(fileURLWithPath: mFilePath!, isDirectory: false)
+//        convertRecord()
+        
+        NSLog("Play %@, @@", [mFilePath ?? "", mMp3FilePath ?? ""])
+        
+        let audioUrl = URL(fileURLWithPath: mMp3FilePath!, isDirectory: false)
         
         do {
             mPlayer = try AVAudioPlayer(contentsOf: audioUrl)
@@ -126,8 +134,15 @@ class ViewController: UIViewController {
     
     //--- convert
     
-    func convertRecord(){
-        let a = AudioWrapper()
+    func convertRecord(){        
+        
+        
+//        AudioWrapper.audioPCMtoMP3(mFilePath, mMp3FilePath)
+        
+        
+//        AudioHelper().exportTempWavAsMp3(wavFilePath: mFilePath!)
+        
+        AudioWrapper.toMp3(mFilePath, mMp3FilePath)
         
         
         
@@ -137,6 +152,7 @@ class ViewController: UIViewController {
     
     var audioRec: AVAudioRecorder?
     var mFilePath: String?
+    var mMp3FilePath: String?
     
     func startRecord(){
         
@@ -145,7 +161,8 @@ class ViewController: UIViewController {
         let docsDirect = paths[0]
         
         let tmpDirPath = NSTemporaryDirectory()
-        mFilePath = tmpDirPath.appending("audioFileName.m4a")
+        mFilePath = tmpDirPath.appending("audioFileName.caf")
+        mMp3FilePath = tmpDirPath.appending("audioFileName.mp3")
         
         NSLog("Temporary path: %@ ,, @@", [tmpDirPath, mFilePath])
         
