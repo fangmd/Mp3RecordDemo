@@ -95,7 +95,7 @@ class ViewController: UIViewController {
             make.width.equalTo(self.view)
             make.height.equalTo(20)
             make.top.equalTo(mBtnStop.snp.bottom)
-        }        
+        }
         mBtnConvert.snp.makeConstraints { (make) in
             make.width.equalTo(self.view)
             make.height.equalTo(20)
@@ -113,11 +113,12 @@ class ViewController: UIViewController {
     var mPlayer: AVAudioPlayer?
     func playRecord(){
         
-//        convertRecord()
+        //        convertRecord()
         
         NSLog("Play %@, @@", [mFilePath ?? "", mMp3FilePath ?? ""])
         
-        let audioUrl = URL(fileURLWithPath: mMp3FilePath!, isDirectory: false)
+        //        let audioUrl = URL(fileURLWithPath: mMp3FilePath!, isDirectory: false)
+        let audioUrl = URL(fileURLWithPath: mFilePath!, isDirectory: false)
         
         do {
             mPlayer = try AVAudioPlayer(contentsOf: audioUrl)
@@ -130,19 +131,56 @@ class ViewController: UIViewController {
         }
         
         
+        NSLog("filesize: %d, mp3filesize: %d", [getFileSize(filePath: mFilePath!), getFileSize(filePath: mFilePath!)])
+        
+        
+        NSLog("filesize:  mp3filesize:" + covertToFileString(with: getFileSize(filePath: mFilePath!)))
+    }
+    
+    // --- get file size
+    func covertToFileString(with size: UInt64) -> String {
+        var convertedValue: Double = Double(size)
+        var multiplyFactor = 0
+        let tokens = ["bytes", "KB", "MB", "GB", "TB", "PB",  "EB",  "ZB", "YB"]
+        while convertedValue > 1024 {
+            convertedValue /= 1024
+            multiplyFactor += 1
+        }
+        return String(format: "%4.2f %@", convertedValue, tokens[multiplyFactor])
+    }
+    
+    func getFileSize(filePath: String) -> UInt64{
+        var fileSize : UInt64?
+        do {
+            //return [FileAttributeKey : Any]
+            let attr = try FileManager.default.attributesOfItem(atPath: filePath)
+            fileSize = attr[FileAttributeKey.size] as! UInt64
+            
+            //if you convert to NSDictionary, you can get file size old way as well.
+            let dict = attr as NSDictionary
+            fileSize = dict.fileSize()
+            
+            return fileSize ?? 0
+        } catch {
+            print("Error: \(error)")
+            
+        }
+        return fileSize ?? 0
     }
     
     //--- convert
     
-    func convertRecord(){        
+    func convertRecord(){
         
         
-//        AudioWrapper.audioPCMtoMP3(mFilePath, mMp3FilePath)
+        //        AudioWrapper.audioPCMtoMP3(mFilePath, mMp3FilePath)
         
         
-//        AudioHelper().exportTempWavAsMp3(wavFilePath: mFilePath!)
+        //        AudioHelper().exportTempWavAsMp3(wavFilePath: mFilePath!)
         
         AudioWrapper.toMp3(mFilePath, mMp3FilePath)
+        
+        
         
         
         
@@ -181,14 +219,19 @@ class ViewController: UIViewController {
                 AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
                 AVSampleRateKey: 44100,
                 AVNumberOfChannelsKey: 2,
-                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+                AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue
             ]
             // 4. create the audio recording, and assign ourselves as the delegate
             audioRec = try AVAudioRecorder(url: audioUrl, settings: settings)
             audioRec?.delegate = self
             audioRec?.record()
             
-            
+//            [NSNumber numberWithInt:kAudioFormatMPEG4AAC], AVFormatIDKey,
+//            [NSNumber numberWithInt:AVAudioQualityMin], AVEncoderAudioQualityKey,
+//            [NSNumber numberWithInt:16], AVEncoderBitRateKey,
+//            [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
+//            [NSNumber numberWithFloat:8000.0], AVSampleRateKey,
+//            [NSNumber numberWithInt:8], AVLinearPCMBitDepthKey,
         }
         catch let error {
             // failed to record!
